@@ -728,7 +728,7 @@ static int pmw3610_report_data(const struct device *dev) {
             }
 #endif
             input_report_rel(dev, INPUT_REL_X, x, false, K_FOREVER);
-            input_report_rel(dev, INPUT_REL_Y, y, true, K_FOREVER);
+            input_report_rel(dev, INPUT_REL_Y, y * CONFIG_PMW3610_Y_MULTIPLIER, true, K_FOREVER);
         } else if (input_mode == SCROLL) {
             data->scroll_delta_x += x;
             data->scroll_delta_y += y;
